@@ -128,7 +128,8 @@ type FluentbitSpec struct {
 	// It must be a valid key in the configmap specified by customConfig
 	CustomParsers string `json:"customParsers,omitempty"`
 	// The following example defines a [Fluentd parser]({{< relref "/docs/configuration/plugins/filters/parser.md" >}}) that places the parsed containerd log messages into the `log` field instead of the `message` field.
-	HealthCheck *HealthCheck `json:"healthCheck,omitempty"`
+	HealthCheck     *HealthCheck `json:"healthCheck,omitempty"`
+	ConfigHotReload *HotReload   `json:"configHotReload,omitempty"`
 }
 
 // FluentbitStatus defines the resource status for FluentbitAgent
@@ -211,6 +212,12 @@ type HealthCheck struct {
 	HCRetryFailureCount int `json:"hcRetryFailureCount,omitempty"`
 	// The time period (in seconds) to count the error and retry failure data point. (default:60)
 	HCPeriod int `json:"hcPeriod,omitempty"`
+}
+
+// HotReload configuration
+type HotReload struct {
+	Resources corev1.ResourceRequirements `json:"resources,omitempty"`
+	Image     ImageSpec                   `json:"image,omitempty"`
 }
 
 // InputTail defines FluentbitAgent tail input configuration The tail input plugin allows to monitor one or several text files. It has a similar behavior like tail -f shell command.
