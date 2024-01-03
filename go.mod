@@ -18,7 +18,7 @@ require (
 	github.com/siliconbrain/go-seqs v0.8.1
 	github.com/spf13/cast v1.6.0
 	github.com/stretchr/testify v1.8.4
-	golang.org/x/exp v0.0.0-20231226003508-02704c960a9b
+	golang.org/x/exp v0.0.0-20240103183307-be819d1f06fc
 	k8s.io/api v0.28.5
 	k8s.io/apiextensions-apiserver v0.28.5
 	k8s.io/apimachinery v0.28.5
